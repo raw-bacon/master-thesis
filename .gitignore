@@ -1,0 +1,9 @@
+*/figs/*.pdf
+
+*.bbl
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.blg
+*.dvi

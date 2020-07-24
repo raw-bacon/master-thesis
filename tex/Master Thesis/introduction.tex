@@ -1,0 +1,63 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\section*{Introduction}
+One of the most classical invariants in knot theory, and also the second most important invariant in this master thesis, is the bridge index of links, introduced by Schubert \cite{schubert1954} in 1954. A \textit{bridge} of a link is a segment of a diagram as in Figure \ref{fig:bridge}, namely an arc of the diagram that passes over at least one other (or the same) arc. The \textit{bridge index} is the number of bridges in a diagram, minimized over all diagrams of the link. Although this definition might seem very combinatorial, it is not really. The bridge index admits a very geometrical interpretation (see Section \ref{subsec:bridge-index}), which makes the bridge index a fundamentally geometrical quantity.
+
+A \textit{meridian} of a link is a `lollipop curve', schematically depicted in Figure \ref{fig:meridian}. In this picture, the meridian is denoted by the letter $m$. The point $x_0$ is the base point of the fundamental group of the complement of the link. Usually one imagines this point sitting between the eyes of the reader. The \textit{meridional rank} of the link is the number of meridians needed to generate the fundamental group of the link complement. This quantity is very much about the fundamental group of the link complement, or rather about the conjugacy classes corresponding to meridians.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.5\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{knot}[clip width = 5, ignore endpoint intersections = false]
+\strand[black!50] (0, 1.5) -- (0, -1.5);
+\strand[black!50] (4, 1.5) -- (4, -1.5);
+
+\strand[black!50] (-0.5, 0) -- (4.5, 0);
+\strand[thick] (0, 0) -- (4, 0);
+
+\strand[black!50] (1, 1.5) -- (1, -1.5);
+\strand[black!50] (3, 1.5) -- (3, -1.5);
+
+\node at (2, 0.75) {$\cdots$};
+\node at (2, -0.75) {$\cdots$};
+
+\end{knot}
+\end{tikzpicture}
+\caption{A bridge}
+\label{fig:bridge}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\begin{tikzpicture}
+\draw (0, 0) -- (4, 0);
+\begin{knot}[clip width = 4, flip crossing=2]
+\strand[thick, black!50] (4.5, -1.5) -- (4.5, 1.5);
+\strand (4.5, 0) circle (0.5);
+\draw[fill=black] (0, 0) circle (0.05);
+\node at (0, 0.3) {$x_0$};
+\end{knot}
+\node at (3, 0.3) {$m$};
+\node[black!50] at (4.8, 1) {$L$};
+\end{tikzpicture}
+\caption{A meridian}
+\label{fig:meridian}
+\end{minipage}
+\end{figure}
+
+Any arc in a diagram corresponds to a meridian, as can be guessed by looking at Figure \ref{fig:meridian}. A variation of the classical proof of the Wirtinger Theorem (Theorem \ref{thm:wirtinger-thm}) yields that the meridional rank is bounded from above by the bridge index (Theorem \ref{thm:mr<=b}).
+The meridional rank conjecture asks about the converse inequality, namely, whether the meridional rank of a link is equal to its bridge index. It was first asked by Cappell and Shaneson \cite{cappell1978} in 1978. The question has also received some attention by being Problem 1.11 in Kirby's list \cite{kirby1995}.
+In the meantime, it has been answered positively by Boileau and Zimmermann for knots of meridional rank two \cite{boileau1989},
+using the two-fold cyclic branched cover of the link complement. It has also been answered positively by Baader, Blair and Kjuchukova for two other classes of links: twisted links, and arborescent
+links associated to bipartite trees with even weights \cite{baader2019}.
+A special case of both of these classes
+are the Pretzel links. The method used in the mentioned article is to find specific quotients of the link group which are known to not admit small generating sets from a (specific) conjugacy class, namely quotients isomorphic to Coxeter groups. A more complete list of previous results about the meridional rank conjecture is listed in Remark \ref{rem:previous-results}.
+
+It remains an open question whether the meridional rank conjecture is true for all links. This question is interesting because it relates the algebra of the link group to the geometry of the embeddings of the link.
+
+This master thesis aims to illustrate how the theory of quotients isomorphic to Coxeter groups can be used to prove the meridional rank conjecture for certain links. It is organized as follows. In Section~\ref{sec:coxeter-groups} we introduce and go over the basic theory of Coxeter groups. In Section \ref{sec:knot-theory} we do the same for knot theory. The main section of this thesis is Section \ref{sec:coxeter-quotients}, where the method of using Coxeter quotients to get information about the meridional rank is described. Section \ref{sec:torus-knots} is a case study about torus links, where it is illustrated that the method of computing the meridional rank of links using Coxeter quotients sometimes fails. The final part, Section \ref{sec:ribbon-theory}, illustrates that it might be interesting to apply the theory developed in Section \ref{sec:coxeter-quotients} to other settings, in this particular case to the fundamental group of the complement of ribbon disks in the $4$-ball. It is a rather experimental part, but it is interesting to see some connections to the initial setting.
+
+I am grateful to Sebastian Baader for introducing me to this fascinating subject and for his continuous effective support and helpful advice. It was great fun to write this thesis.
+\end{document}

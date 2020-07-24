@@ -1,0 +1,114 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\section{Knot Theory}\label{sec:knot-theory}
+We quickly recall the basic notions of knot theory. It is expected that the reader is familiar with the notion of bridge index and knows how to compute fundamental groups of link complements. All of this information can be found in Rolfsen's textbook \cite{rolfsen2003}.
+
+\subsection{Knots and Links}
+A \textit{knot} $K$ is the image of a smooth embedding of $S^1$ into $S^3$. A \textit{link} $L$ is a disjoint union of finitely many knots. Two links $L \subset S^3$ and $L' \subset S^3$ are said to be \textit{equivalent} if there exists an orientation-preserving diffeomorphism between the pair $(S^3, L)$ and the pair $(S^3, L')$, i.e., a diffeomorphism $S^3 \rightarrow S^3$ that restricts to a diffeomorphism of the links $L \rightarrow L'$.
+
+\begin{example}[Torus Links]
+Let $p, q$ be integers. Consider the universal covering $\mathbb{R}^2 \rightarrow T^2$, where the set $T^2 \subset \mathbb{R}^3$ is a standardly embedded torus. For an explicit parametrisation, consider e.g. Example~6 of Section 2-2 in Do Carmo's book \cite{docarmo1976}. Then the $(p,q)$-\textit{torus link} is the image of the lines through the points $\mathbb{Z}e_1$ of slope $p/q$.
+\end{example}
+
+\begin{example}[Pretzel Links]
+The $(l_1, \dots, l_k)$-\textit{Pretzel link} is the link obtained by connecting twist regions in the way indicated in Figure \ref{fig:pretzel-link}. We will write $P(l_1, \dots, l_k)$ for this link. An example is~drawn in Figure \ref{fig:p(2,3,-3)}.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics{pretzel-general}
+\caption{$P(l_1, l_2, \dots, l_k)$}
+\label{fig:pretzel-link}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+\centering
+\includegraphics{pretzel-example}
+\caption{$P(2, 3, -3)$}
+\label{fig:p(2,3,-3)}
+\end{minipage}
+\end{figure}
+\end{example}
+
+\subsection{The Bridge Index} \label{subsec:bridge-index}
+Let $L \subset S^3$ be a link. The minimal number of local maxima of a smooth function $S^3 \rightarrow \mathbb{R}$ restricted to links equivalent to $L$ is called the \textit{bridge index} of $L$ and referred to as $b(L)$.
+This can be diagrammatically characterized in the following way. Let $D$ be a diagram of $L$. An \textit{arc} in $D$ is a segment of~$D$ beginning and ending with an undercrossing, containing no undercrossings in between. A \textit{bridge} of $D$ is an arc of $D$ that contains at least one overcrossing.
+
+\begin{proposition}
+The bridge index of a link $L \subset S^3$ is equal to the number of bridges in a diagram~$D$ of $L$, minimized over all diagrams.
+\end{proposition}
+
+\begin{proof}[Proof idea]
+This is an exercise in \cite{rolfsen2003}. One inequality is fairly straightforward:
+Note that a bridge of a diagram induces a maximum of the height function. Thus, the minimal number of maxima (i.e., the bridge index), is less than or equal to the number of bridges. The converse inequality is a bit trickier, involving flipping a diagram to its side and a general position argument.
+\end{proof}
+
+The following was first proven by Schubert \cite{schubert1954}.
+
+\begin{proposition}\label{prop:bridge-index-connected-sum}
+Let $K$ and $K'$ be knots. Then $b(K\#K') = b( K ) + b(K') - 1$, where $K \# K'$ denotes a so-called connected sum of $K$ and $K'$.
+\end{proposition}
+
+
+\subsection{The Link Group}\label{subsec:link-group}
+The \textit{link group} $\pi(L)$ of a link $L \subset S^3$ is the fundamental group of its complement in $S^3$. In symbols this reads $\pi(L) = \pi_1(S^3 \setminus L)$. If $L$ is a knot $K$ then the link group $\pi(K)$ is referred to as its \textit{knot group}.
+
+The knot group essentially classifies all knots, in that if two prime knots have isomorphic knot groups then they are either equivalent or mirrors of each other \cite{gordon1989}. Be warned that this is no longer true for links, see \cite{rolfsen2003}. This suggests that studying the knot group could reveal a lot about the knot in question.
+
+We will now describe an algorithm that computes the link group of an oriented link. Let $L \subset S^3$ be a link and let $D$ be any diagram of $L$. Let $S = \{m_1, \dots, m_k\}$ be the set of diagram meridians, oriented from right to left. A meridian $m_i$ should be interpreted at as the meridian starting at the reader's eye, which will serve as the base point of the fundamental group, passing under the arc and going back to the reader's eye without any detour.
+Having assigned a generator to every crossing, we now assign a relator $r$ to any crossing, as indicated in Figure \ref{fig:wirtinger-relations}.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.45\textwidth}
+\centering
+\includegraphics{figs/wirtinger-relations1}
+\end{minipage}%
+\begin{minipage}{.45\textwidth}
+\centering
+\includegraphics{figs/wirtinger-relations2}
+\end{minipage}
+\caption{Relations in the Wirtinger Presentation}
+\label{fig:wirtinger-relations}
+\end{figure}
+
+Since it is very well known that this procedure works, it would be reasonable to omit the proof. But we are going to copy the argument and apply it to slice disks later on (see Section \ref{subsec:ribbons}), so it will be useful to go over the proof again quickly.
+
+
+
+
+
+\begin{theorem}\label{thm:wirtinger-thm}
+Let $L$ be a link.
+Then the presentation resulting from performing the Wirtinger algorithm is a presentation of the link group $\pi(L)$.
+\end{theorem}
+
+
+\begin{proof}
+This is the proof given in \cite{rolfsen2003}. In order to apply van Kampen's theorem \cite{hatcher2002}, first we make sure that $L$ lies entirely in a plane $P$, except for the crossings, where the understrand passes under the plane. Suppose all understrands reach the same maximal distance~$\varepsilon$ to $P$ and reach it in exactly one connected component of $L$ intersected with $P^{-}$. Here $P^-$ is the plane parallel to $P$ of distance~$\varepsilon$ in the down-direction, marked in grey in Figure \ref{fig:proof-of-wirtinger}.
+Position the base point $x$ somewhere above $P$. We now subdivide $S^3$ as follows.
+Let $H^+$ be the closed half-space above $P^-$ intersected with the link complement. Then $H^+$ contains $x$. Moreover, the fundamental group of $H^+$ is free with generating set the meridians of $L$. Similarly, let $H^-$ be the closed half-space below $P^-$, also intersected with $L$. In contrast to $H^+$ we have that $H^-$ is simply connected.
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics{figs/proof-of-wirtinger}
+\caption{Explanation of the Wirtinger relations}
+\label{fig:proof-of-wirtinger}
+\end{figure}
+
+
+The fundamental group of $P^-$ (with respect to any base point) is also free, but the generators this time are curves like $\gamma$ in Figure~\ref{fig:proof-of-wirtinger}. In $H^-$, these curves are trivial because $H^-$ is simply connected. On the other hand, in $H^+$ they represent words like $b^{-1}aca^{-1}$, where $a, b$ and $c$ are diagram meridians (or inverses thereof) of arcs close to the crossing considered. These are exactly the Wirtinger relations.
+By van Kampen's Theorem, these relations yield a presentation of the link complement, which is what we wanted to show.
+\end{proof}
+
+\begin{theorem}\label{thm:mr<=b}
+Let $L \subset S^3$ be a link. Then $\pi(L)$ is generated by $b(L)$ meridians.
+\end{theorem}
+
+\begin{proof}
+This is very similar to the proof of Theorem \ref{thm:wirtinger-thm}. This time we don't dip down for undercrossings as in Figure \ref{fig:proof-of-wirtinger} but we stay up as long as possible after the overcrossings. Then the generators given by the van Kampen argument are precisely the bridges in the diagrammatic interpretation of bridges.
+\end{proof}
+
+\end{document}

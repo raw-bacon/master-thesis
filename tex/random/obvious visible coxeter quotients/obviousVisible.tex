@@ -1,0 +1,15 @@
+\documentclass{article}
+
+\usepackage{amsthm}
+
+\begin{document}
+\section{Visible Quotients}
+Let $L$ be a link and let $D$ be a diagram of $L$.
+A \textbf{Coxeter quotient} is a quotient $\pi_1/H$ of $\pi_1(S^3 \setminus L)$ that is isomorphic to a Coxeter group $W$ with generating set $S$, where the isomorphism between $\pi_1/H$ maps meridians of $L$ to reflections (conjugates of elements in $S$) in $W$. A Coxeter quotient is called \textbf{visible} in $D$ if for all $s \in S$ there exists a pre-image $s' \in \pi_1$ that is a Wirtinger generator, and it is called \textbf{obvious} if one can see by hand that these Wirtinger generators $s'$ indeed generate $\pi_1$.
+
+The following is a procedure to algorithmically find all obvious visible Coxeter quotients in a given diagram $D$. First, find minimal sets of obvious generators. This can be done in the following way. Take an arbitrary set $S$ of Wirtinger generators. Mark the corresponding arcs in the diagram. Then repeat the following. At each crossing where the over-arc and one of the under-arcs are marked, mark the second under-arc. Then $S$ generates $\pi_1$ if and only if at some point all arcs in the diagram are marked.
+
+Having determined all minimal sets $S$ of obvious generators, do the following for each of them. Use the Word Problem for Coxeter groups to try to deduce from a given Coxeter matrix the defining relations of $\pi_1$ with respect to this set of generators (it suffices to consider prime entries to exclude many of them). 
+
+This brute forces your way into obtaining all obvious visible Coxeter quotients with respect to a given diagram.
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{recall}[theorem]{Recall}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\Aut}{\textup{Aut}}
+\newcommand{\Homeo}{\textup{Homeo}}
+
+\begin{document}
+\section{Covering Spaces}
+\begin{recall}
+Let $X, Y$ be topological spaces and let $p: Y \rightarrow X$ be a normal covering map. Then, the group $\Aut(p)$ of deck transformations of $p$ is isomorphic to the quotient $\pi_1(X) / p_*(\pi_1(Y))$.
+
+Conversely, suppose we are given a normal subgroup $H$ of the fundamental group $\pi_1(X)$. 
+We want to construct a normal covering space $Y$ with a covering map $p: Y \rightarrow X$ such that $\Aut(p)$ is isomorphic to the quotient $\pi_1(X) / H$. 
+To do this, let $\widetilde{X}$ be the universal cover of $X$. 
+Consider the universal covering map $\widetilde{p}: \widetilde{X} \rightarrow X$ of $X$. 
+Then the group $\Aut(\widetilde{p})$ of deck transformations of $\widetilde{p}$ is isomorphic to $\pi_1(X)$. 
+Thus, we can consider $H$ as a subgroup of $\Aut(\widetilde{p})$, which is itself a subgroup of the group $\Homeo(\widetilde{X})$.
+Consider now the orbit space $Y = H \backslash \widetilde{X}$. 
+Because the universal covering map $\widetilde{p}$ is invariant under $H$ we obtain a covering map $p: Y \rightarrow X$. Since $\widetilde{X}$ is simply connected, $\pi_1(Y)$ is isomorphic to $H$. This shows that $\Aut(p)$ is isomorphic to $\pi_1(X)/H$.
+
+The following theorem summarizes what we have shown.
+\end{recall}
+
+\begin{theorem}
+Let $X$ be a topological space. Then there is a bijection between the set of normal coverings $p: Y \rightarrow X$ of $X$ and normal subgroups $H$ of the fundamental group $\pi_1(X)$ of $X$.
+\end{theorem}
+
+\begin{remark}
+The construction above would also work if instead of choosing the universal cover $\widetilde{X}$ we chose a space $Z$ for which we have that $\pi_1(Z)$ is a normal subgroup of $H$ under the correct identifications.
+\end{remark}
+
+\section{Coxeter Covers}
+
+
+
+\end{document}

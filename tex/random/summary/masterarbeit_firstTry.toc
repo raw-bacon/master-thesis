@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Consequences of Coxeter Quotients}{3}
+\contentsline {subsection}{\numberline {1.1}Coxeter Quotients}{3}
+\contentsline {subsection}{\numberline {1.2}The Reflection Quotient}{3}
+\contentsline {subsection}{\numberline {1.3}The Meridional Rank Conjecture}{3}
+\contentsline {subsection}{\numberline {1.4}The Meridional Rank of Connected Sums}{4}
+\contentsline {section}{\numberline {2}Existence of Coxeter Quotients}{5}
+\contentsline {subsection}{\numberline {2.1}In 2-Bridge Knots}{5}
+\contentsline {subsection}{\numberline {2.2}In Pretzel Links}{6}
+\contentsline {subsection}{\numberline {2.3}In Torus Links}{7}
+\contentsline {subsection}{\numberline {2.4}In Positive Braids (?)}{8}
+\contentsline {section}{\numberline {A}Appendix}{9}
+\contentsline {subsection}{\numberline {A.1}Topology}{9}
+\contentsline {subsubsection}{\numberline {A.1.1}Topological Spaces}{9}
+\contentsline {subsubsection}{\numberline {A.1.2}The Fundamental Group}{10}
+\contentsline {subsubsection}{\numberline {A.1.3}Some Homology Theory}{10}
+\contentsline {subsection}{\numberline {A.2}Knot Theory}{10}
+\contentsline {subsubsection}{\numberline {A.2.1}Links}{10}
+\contentsline {subsubsection}{\numberline {A.2.2}The Bridge Index}{11}
+\contentsline {subsubsection}{\numberline {A.2.3}The Link Group}{12}
+\contentsline {subsubsection}{\numberline {A.2.4}The Meridional Rank}{12}
+\contentsline {subsection}{\numberline {A.3}Group Theory}{13}
+\contentsline {subsubsection}{\numberline {A.3.1}Normal Subgroups}{13}
+\contentsline {subsubsection}{\numberline {A.3.2}Presentations}{13}
+\contentsline {subsection}{\numberline {A.4}Coxeter Groups}{14}
+\contentsline {subsubsection}{\numberline {A.4.1}The Reflection Representation}{15}
+\contentsline {subsubsection}{\numberline {A.4.2}The Word Problem}{15}
+\contentsline {section}{\numberline {B}Some Algorithms}{16}
+\contentsline {subsection}{\numberline {B.1}General Knot Theory}{16}
+\contentsline {subsubsection}{\numberline {B.1.1}Gauss Codes}{16}
+\contentsline {subsubsection}{\numberline {B.1.2}The Wirtinger Algorithm}{16}
+\contentsline {subsection}{\numberline {B.2}Coxeter Quotients}{17}
+\contentsline {subsubsection}{\numberline {B.2.1}Obvious Visible Coxeter Quotients}{17}
+\contentsline {subsubsection}{\numberline {B.2.2}Finding Quotients}{19}

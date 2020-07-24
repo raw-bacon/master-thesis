@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\input{figpreamble}
+\begin{document}
+
+
+\begin{tikzpicture}
+\clip (0, -0.3) rectangle (5, 2.75);
+\begin{knot}[clip width = 5, ignore endpoint intersections=false, flip crossing = 1]
+\strand[thick] (0, 0) -- (5, 0);
+\strand[thick] (0, 2) -- (5, 2);
+\strand[thick] (2.5, 2) ellipse (0.3 and 0.75);
+\end{knot}
+\end{tikzpicture}
+
+\end{document}

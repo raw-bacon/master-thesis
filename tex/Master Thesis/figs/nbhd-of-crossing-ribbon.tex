@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\input{figpreamble}
+\begin{document}
+
+
+
+
+\begin{tikzpicture}
+\clip (0, -2) rectangle (6, 4);
+\shade[left color=black!10, right color = black!5] (0, 0) rectangle (6, 2);
+\shade[bottom color=black!20, top color = black!10] (2, -2) -- (2, 4) -- (4, 4) -- (4, 2) -- (3, 2) -- (3, 0) -- (4, 0) -- (4, -2) -- (2, -2);
+\draw[thick] (2, 0) -- (0, 0);
+\draw[thick] (0, 2) -- (2, 2);
+\draw[thick] (3, 2) -- (6, 2);
+\draw[thick] (6, 0) -- (3, 0);
+\draw[thick, dashed] (3, 0) -- (3, 2);
+\draw[thick] (4, 2) -- (4, 4);
+\draw[thick] (2, 4) -- (2, -2);
+\draw[thick] (4, -2) -- (4, 0);
+
+\draw[thick, ->] (0.9, 2) -- (1, 2);
+\draw[thick, ->] (1, 0) -- (0.9, 0);
+
+\draw[thick, ->] (4.9, 2) -- (5, 2);
+\draw[thick, ->] (5, 0) -- (4.9, 0);
+
+\draw[thick, ->] (2, -1) -- (2, -1.1) ;
+\draw[thick, ->] (2, 3) -- (2, 2.9) ;
+\draw[thick, ->] (4, -1.1) -- (4, -1);
+\draw[thick, ->] (4, 2.9) -- (4, 3);
+
+
+\node at (1, 1) {$a$};
+\node at (5, 1) {$b$};
+\node at (3, 3) {$c$};
+\end{tikzpicture}
+
+
+\end{document}

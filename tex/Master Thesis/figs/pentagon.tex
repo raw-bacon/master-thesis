@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\input{figpreamble}
+
+\begin{document}
+	\begin{tikzpicture}[scale = 0.5]
+		% pentagon
+		\filldraw[color = black!20] 
+			(4, 0) -- (72:4) 
+				   -- (144:4) 
+				   -- (0, 0);
+				   
+		\draw[thick] 
+			(4, 0) -- (72:4) 
+				   -- (144:4) 
+				   -- (216:4) 
+				   -- (288:4) 
+				   -- (4, 0);
+			   
+		\draw[thick, dashed] (-5, 0) -- (5, 0);
+		\draw[thick, dashed] (144:5) -- (144:-5);
+		\draw (0, -5) -- (0, 5);
+		\draw (54:5) -- (54:-5);
+
+		\node at (4, 0) {\contour{white}{$e_s$}};
+		\node at (144:4) {\contour{white}{$e_t$}};
+		\node at (0, 4) {\contour{white}{$e_s^\perp$}};
+		\node at (54:4) {\contour{white}{$e_t^\perp$}};
+	\end{tikzpicture}
+\end{document}
+
+

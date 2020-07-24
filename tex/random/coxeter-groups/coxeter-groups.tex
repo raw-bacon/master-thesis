@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+\section{Reflection Representation}
+Consider a real vector space $V$ of dimension $n$. A \textbf{linear reflection} is a linear map $A \in \text{GL}(V)$ fixing an $(n-1)$-dimensional hyperplane called its \textbf{mirror} and one eigenvector of eigenvalue $-1$, called its \textbf{root}.
+
+Let $(W,S)$ be a Coxeter system of type $M = (m_{ij})$. Then a \textbf{reflection representation} is a linear representation $\rho: W \rightarrow \text{GL}(V)$ obtained as follows.
+Writing $S = \{s_1,\dots,s_n\}$, consider a real vector space $V$ of dimension $n$ and a basis $\{e_1,\dots,e_n\}$. Let $B$ be a symmetric bilinear form satisfying
+$$B(e_i, e_j) = -\cos(\pi/m_{ij})$$
+if $m_{ij} < \infty$. Otherwise, if $m_{ij} = \infty$ we just assume $B(e_i, e_j) \leq 1.$ The flexibility there is useful to guarantee irreducibility (See Davis for why this is allowed). Then define the representation $\rho: W \rightarrow \text{GL}(V)$ by $s_i \mapsto \rho_i$, where
+$$\rho_i(x) = x - 2B(x, e_i)e_i.$$
+\begin{proposition}
+Any reflection representation obtained by the preceeding construction defines a faithful linear representation.
+\end{proposition}
+
+
+\begin{proposition}
+If $B$ is non-degenerate then no non-zero point of $V$ is fixed by all reflections.
+\end{proposition}
+
+\section{Pretzel Links}
+Let $L = P(l_1,\dots, l_n)$ be a Pretzel link. We assume $|l_i| \geq 2$. We associate to $L$ the Coxeter group
+$$W = \langle s_1, \dots, s_n \; | \; (s_2s_1)^{l_1}, (s_3s_2)^{l_2}, \dots, (s_ns_{n-1})^{l_{n-1}}, (s_1s_n)^{l_n} \rangle.$$
+We will call groups of this form \textbf{Pretzel Coxeter groups}. Their Coxeter matrix is
+$$M = \left( \begin{matrix}
+1 & l_1 & \infty & \infty & \infty &\cdots & \infty & l_n \\
+l_1 & 1 & l_2 & \infty & \infty & \cdots & \infty & \infty \\
+\infty & l_2 & 1 & l_3 & \infty &\cdots & \infty & \infty \\
+\infty & \infty  & l_3 & 1 & \ddots & \ddots & \vdots & \vdots \\
+\infty & \infty & \infty & \ddots & \ddots & \ddots & \infty & \infty \\
+\vdots & \vdots & \vdots & \ddots &\ddots & 1 & \l_{n-2} & \infty \\
+\infty & \infty & \infty & \cdots & \infty & l_{n-2} & 1 & l_{n-1} \\
+l_n & \infty & \infty & \cdots & \infty & \infty  & l_{n-1} & 1
+\end{matrix} \right).$$
+
+\begin{proposition}
+The Pretzel Coxeter group associated to a Pretzel link $L$ is a quotient of the link group $\pi_1(S^3 \setminus L)$. 
+\end{proposition}
+
+
+\begin{lemma}\label{lem:arthurs-trick}
+Let $X,Y$ be real square matrices of the same size, and suppose $X$ is invertible. Then, for all but finitely many $\lambda \in \mathbb{R}$ the matrix $\lambda X + Y$ is invertible.
+\end{lemma}
+
+\begin{proof}
+The function $\mu \mapsto \det(X + \mu Y)$ is a non-zero polynomial, so $X + \mu Y$ is invertible for almost all $\mu$ in $\mathbb{R}$. Dividing by $\mu$ and letting $\lambda = \pm \mu^{-1}$ we see that whenever $X + \mu Y$ is invertible, so is $\lambda X + Y$.
+\end{proof}
+
+\begin{proposition}
+Let $L = P(l_1,\dots, l_n)$ be a Pretzel link. Then the Pretzel Coxeter group associated to $L$ admits a linear reflection representation of degree $n$ such that the only point fixed by all reflections is zero.
+\end{proposition}
+
+\begin{proof}
+This includes multiple applications of Lemma \ref{lem:arthurs-trick}. If $n = 2$, then $B$ is positive definite and thus non-degenerate. If $n = 3$ then $B$ might note be positive definite, but one can easily check with Gauss elimination that $B$ is non-degenerate.
+
+Next, we consider the case $n=4$. It is not strictly necesarry to consider this case separately but it serves to illustrate the strategy to come. Let
+$$
+X_4 = \left( \begin{matrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+\end{matrix} \right), \;\;\;
+Y_4 = \left( \begin{matrix}
+1		&		b_1		&		0		&	b_4 	\\
+b_1		& 		1		&		b_2			&	0	\\
+0 	& 		b_2		&		1			&	b_3		\\
+b_4		&		0	&		b_3			&	1		\\
+\end{matrix} \right),
+$$
+where $b_i = -cos(\pi/l_i)$. By Lemma \ref{lem:arthurs-trick} there exists $\lambda \leq -1$ such that the bilinear form $B$ with matrix $\lambda X + Y$ is invertible, in which case the radical of $B$ is trivial. Thus, the reflection representation determined by $B$ is such that no point except zero is fixed. This concludes the proof for $n = 4$.
+
+For $n = 5$ note similarly that the matrix
+$$X_5 = \left( \begin{matrix}
+0 & 0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 0 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0
+\end{matrix} \right)$$
+is invertible. Defining $Y_5$ similarly as in the case $n = 4$ yields the desired result.
+
+Now let $n$ be arbitrary.
+Define $Z_n$ to be the matrix of the standard bilinear form (introduced e.g. in Humphreys) corresponding to the Coxeter matrix $M$. More concretely we have
+$$ Z_n = \left( \begin{matrix}
+1	& b_1	& -1	& -1	& -1	& \cdots	& -1	& b_n	\\
+b_1 & 1	& b_2	& -1	& -1	& \cdots	& -1	& -1	\\
+-1	& b_2	& 1		& b_3	& -1	& \cdots	& -1	& -1	\\
+-1	& -1	& b_3 	& 1		& \ddots& \ddots	& \vdots& \vdots\\
+-1	& -1	& -1	& \ddots& \ddots& \ddots	& -1	& -1	\\
+\vdots&\vdots&\vdots& \ddots& \ddots& 1			& b_{n-2}&x		\\
+-1	& -1	& -1	& \cdots& -1	& b_{n-2}	&  1	& b_{n-1}\\
+b_n	& -1	& -1	& \cdots& -1	& -1		& b_{n-1}&1		\\
+
+\end{matrix} \right)$$
+where $b_i = -\cos (\pi/l_i)$. Let $X$ be the block matrix
+$$X_{2k} = \left( \begin{matrix}
+0 & I_{n/2} \\
+I_{n/2} & 0
+\end{matrix} \right), \;\;\;
+X_{2k+5} = \left( \begin{matrix}
+0 & 0 & I_{k/2} \\
+0 & X_5 & 0 \\
+I_{k/2} & 0 & 0
+\end{matrix} \right)
+$$ where $I_m$ is the identity matrix of size $m$ and $X_5$ is as in the case $n = 5$. Then let $Y = Z + X$ and as above apply Lemma \ref{lem:arthurs-trick}.
+\end{proof}
+
+
+\begin{corollary}
+The meridional rank of a Pretzel link $L = P(l_1,\dots, l_n)$, where we assume $l_i \geq 2$, is equal to $n$. 
+\end{corollary}
+
+\begin{proof}
+Since $\pi_1(S^3 \setminus L)$ is generated by the obvious meridians we have that the meridional rank is less than or equal to $n$. Moreover, the meridional rank is bounded from below by $n$ because by irreducibility of the reflection representation the Pretzel Coxeter quotient associated to $L$ is not generated by less than $n$ reflections. Thus the meridional rank is equal to $n$.
+\end{proof}
+
+\begin{conjecture}
+Any other Coxeter quotient of $\pi_1(S^3 \setminus L)$ is a quotient of the Pretzel Coxeter group.
+\end{conjecture}
+
+Sadly this is not true, because the $(3,3,3)$-Pretzel knot has an $S_3$-quotient.
+
+\begin{question}
+Can this be applied to produce a rigid cover of $\pi_1(S^3 \setminus L)$ or of $S^3$ branched along $L$?
+\end{question}
+
+This is probably not so interesting.
+
+\section{Realisation of Coxeter Groups}
+\begin{question}
+Let $W$ be a Coxeter group. Does there exist a link $L \subset S^3$ such that $W$ is a quotient of $\pi_1(S^3 \setminus L)$?
+\end{question}
+
+Yes. The trivial link.
+
+\begin{proposition}
+If $K \subset S^3$ is a knot and $W$ is a quotient of $\pi_1(S^3 \setminus K)$, then at most one edge in the Coxeter diagram of $W$ is labeled $2$.
+\end{proposition}
+
+\begin{proof}
+If not then $\pi_1(S^3 \setminus K)$ has a quotient of the form $(\mathbb{Z}/2)^k$ for some $k \geq 2$. But the abelianization of the $\pi$-orbifold quotient is isomorphic to $\mathbb{Z}/2$, which does not have a quotient isomorphic to $(\mathbb{Z}/2\mathbb{Z})^k$.
+\end{proof}
+
+\end{document}

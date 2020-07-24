@@ -1,0 +1,54 @@
+%in all files, first line: \input{preamble}
+
+%maybe consider amsarticle
+\documentclass{article}
+
+%margins
+\usepackage{geometry}
+\geometry{left=3cm, right=3cm, bottom=3cm, top=3cm}
+
+%common AMS packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+%common theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{algo}[theorem]{Procedure}
+
+%custom enumaration
+\usepackage{enumerate}
+
+%importing graphics
+\usepackage{graphicx}
+
+%clickable links
+\usepackage{hyperref}
+
+
+%tikz
+\usepackage{tikz}
+\usetikzlibrary{knots, cd, calc}
+
+%standalone subfiles
+\usepackage{subfiles}
+
+%second path for subfolders
+\graphicspath{{figs/}{../figs/}}
+
+\newcommand{\verticalcenter}[1]{
+\begin{tabular}{l} #1 \end{tabular}
+}

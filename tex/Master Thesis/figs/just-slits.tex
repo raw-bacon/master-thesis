@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\input{figpreamble}
+\begin{document}
+
+
+
+
+\begin{tikzpicture}[scale=0.6]
+\clip (-3, 0) rectangle (3, 5);
+\draw (-1, 2.25) .. controls +(-0.2, 0) and +(0, 0.1) ..
+	(-1.25, 2) .. controls +(0, -0.1) and +(-0.2, 0) ..
+	(-1, 1.75) -- (1, 1.75) 
+	.. controls +(0.2, 0) and +(0, -0.1) .. (1.25, 2)
+	.. controls +(0, 0.1) and +(0.2, 0) .. (1, 2.25)
+	-- (-1, 2.25);
+	
+\draw (-2, 3.25) .. controls +(-0.2, 0) and +(0, 0.1) ..
+	(-2.25, 3) .. controls +(0, -0.1) and +(-0.2, 0) ..
+	(-2, 2.75) -- (2, 2.75) 
+	.. controls +(0.2, 0) and +(0, -0.1) .. (2.25, 3)
+	.. controls +(0, 0.1) and +(0.2, 0) .. (2, 3.25)
+	-- (-2, 3.25);
+
+
+
+\end{tikzpicture}
+
+\end{document}

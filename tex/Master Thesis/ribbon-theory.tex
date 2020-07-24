@@ -1,0 +1,325 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\section{Ribbon Theory} \label{sec:ribbon-theory}
+To conclude this thesis, this section is devoted to applying the results and strategies of Section \ref{sec:knot-theory} to ribbon disks in the four-ball. 
+
+\subsection{Ribbon and Slice Disks}\label{subsec:ribbons}
+A \textit{ribbon disk} is a smooth immersion $D^2 \rightarrow S^3$ of a disk $D^2$ that only has single and double points such that it becomes injective after removing finitely many intervals from the interior of $D^2$. A \textit{ribbon knot} is a knot that bounds a ribbon disk.
+
+This can be visualized as follows. Let us call connected components of double points of a ribbon disk \textit{ribbon singularities}. Then a ribbon singularity looks like a slit cut into the interior of the ribbon in order to allow another part of the ribbon to pass through, see Figure \ref{fig:ribbon-singularity}. The singularity in Figure \ref{fig:not-ribbon-singularity} is not a ribbon singularity because the slit that we would need to cut involves a point on the boundary of the ribbon.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{ribbon-singularity}
+\caption{A ribbon singularity}
+\label{fig:ribbon-singularity}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{not-ribbon-singularity}
+\caption{Not a ribbon singularity}
+\label{fig:not-ribbon-singularity}
+\end{minipage}
+\end{figure}
+
+We start by considering a particular family of ribbon knots.
+
+\begin{theorem}\label{thm:connected-sum-ribbon}
+Let $K$ be any knot and $\bar{K}$ its mirror image. Then the connected sum $K\#\bar{K}$ is a ribbon knot.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Suppose $P$ is the plane such that orthogonal reflection in $P$ maps the knot $K\#\bar{K}$ onto itself. In the example in Figure \ref{fig:connected-sum-figure-8}, the plane $P$ is represented by the dashed line. 
+Now connect corresponding points on the knot by straight lines perpendicular to $P$. By a general position argument arising from the observation that projecting $K\#\bar{K}$ onto $P$ is an immersed interval, we can adjust $K$ such that the surface formed in this way is a ribbon disk.
+\end{proof}
+
+\begin{example}
+Figure \ref{fig:ribbon-trefoil-mirror-trefoil} shows the result of applying the procedure in the proof of Theorem \ref{thm:connected-sum-ribbon} to the Trefoil knot.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics[scale=0.7]{connected-sum-figure-8}
+\caption{$3_1 \# \bar{3}_1$}
+\label{fig:connected-sum-figure-8}
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+\centering
+\includegraphics{ribbon-trefoil-mirror-trefoil}
+\caption{A ribbon disk for $3_1 \# \bar{3}_1$}
+\label{fig:ribbon-trefoil-mirror-trefoil}
+\end{minipage}
+\end{figure}
+\end{example}
+
+Let us interpret $S^3$ as the boundary of the unit ball $D^4$ in four-dimensional euclidean space. A \textit{slice disk} is a smooth embedding of a disk $D^2$ into $D^4$ whose boundary $S^1$ is mapped into $S^3$, and whose interior~$B^2$ is mapped into the interior $B^4$ of $D^4$. More concisely, a slice disk is a smooth embedding of the pair~$(D^2, S^1)$ into the pair $(D^4, S^3)$. A knot that is the boundary of a slice disk is called a \textit{slice knot}.
+
+\begin{theorem}\label{thm:ribbon-are-slice}
+All ribbon knots are slice knots.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Let $f: D^2 \rightarrow S^3$ be the ribbon disk. We are going to add a height coordinate to $f$ as follows. Take disjoint neighborhoods of the slits that need to be removed from $D^2$ in order for $f$ to become injective. Now just add a bump function to these neighborhoods.
+
+This procedure is schematically indicated in Figure \ref{fig:ribbon-knots-are-slice}. More distance from the boundary corresponds to a brighter color, and the slits we were about to cut away are dashed. The increase in brightness up until the inner large circle is to make sure that no part of the interior $B^2$ of $D^2$ is mapped to $S^3$.
+Every step we did could have been done smoothly. We have thus constructed a slice disk from a ribbon disk.
+\end{proof}
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics{ribbon-knots-are-slice}
+\caption{The disk $D^2$ with some slits with indications how to get an embedding into $D^4$}
+\label{fig:ribbon-knots-are-slice}
+\end{figure}
+
+\subsection{The Ribbon Disk Group}
+%As with a link group, ...
+The \textit{slice disk group} $\pi(S)$ of a slice disk $S$ in $D^4$ is the fundamental group of its complement in $D^4$. If the slice disk is also a ribbon disk $R$, then $\pi(R)$ is called its \textit{ribbon group}. We define the ribbon group of a ribbon in $S^3$ to be the ribbon group of its embedding into $D^4$ as in the proof of Theorem \ref{thm:ribbon-are-slice}. In this section, we are going to give a Wirtinger-like algorithm to compute ribbon groups.
+
+To describe our procedure, we first need to establish some terminology. Let $R$ be a ribbon disk in~$S^3$. A \textit{crossing} of $R$ is a connected component of the set of ribbon singularities, i.e., the set of double points of the immersion $D^2 \rightarrow R$. Note that (up to mirroring) each crossing has a neighborhood as in Figure \ref{fig:nbhd-of-crossing-ribbon}. Denote by $J$ the set of singularities. Then a connected component of $R \setminus J$ will be called an \textit{arc} of $R$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics{nbhd-of-crossing-ribbon}
+\caption{A neighborhood of a crossing with over-arc $c$ and under-arcs $a$ and $b$}
+\label{fig:nbhd-of-crossing-ribbon}
+\end{figure}
+
+We are now ready to describe the desired procedure, henceforth referred to as the \textit{Ribbon Wirtinger procedure}. Let $S$ be in bijection with the set of arcs of~$R$. Now to any crossing as in Figure \ref{fig:nbhd-of-crossing-ribbon} assign a relation $ac = cb$. Then the presentation arising from this construction is a presentation of the ribbon group, as we will later show.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{height-outer}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.6]{connected-sum-figure-8-no-line}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{height-middle}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{ribbon-trefoil-mirror-trefoil-slits-removed}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{height-inner}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics{just-slits}
+\end{minipage}
+\caption{The embedding of $R$ (right) into $D^4$ (left) at different heights}
+\label{fig:embedding-height-levels}
+\end{figure}
+
+
+To prove that the above algorithm indeed gives rise to a presentation of the ribbon group, we will first need to address another (more complicated) procedure based on a Seifert-van Kampen argument not unlike the one we used in the proof of Theorem \ref{thm:wirtinger-thm}. First, we consider the embedding of $R$ into $D^4$ as in the proof of Theorem \ref{thm:ribbon-are-slice}. Let $P$ be the three-sphere in $D^4$ at the height of the inner (medium-gray) disk in Figure \ref{fig:ribbon-knots-are-slice}. Note that $P$ basically contains $R$, except for a neighborhood of the boundary of $R$ and for neighborhoods of slits, see Figure \ref{fig:embedding-height-levels} (middle right). Now $P$ divides $D^4$ into two connected components. Let $H^+$ be the closure of the outer component and $H^-$ the closure of the inner component. The intersection of $R$ with a height level in $H^+$, $P$ and $H^{-}$, respectively, is depicted in Figure \ref{fig:embedding-height-levels}.
+
+We are now going to apply the Seifert-van Kampen Theorem to the decomposition 
+$$D^4 \setminus R = (H^+ \setminus R) \cup (H^- \setminus R).$$ From Figure \ref{fig:embedding-height-levels} it is evident that the interior of $H^+$ retracts onto $S^3 \setminus \partial R$, so we get an isomorphism $\pi_1(H^+ \setminus R) \cong \pi(K)$, where $K = \partial R$. Similarly, $\pi_1(H^- \setminus R)$ is a free group generated by meridians of~$K$. One immediate consequence of this is the following.
+
+\begin{proposition}
+Let $R$ be a ribbon disk for a knot $K$. Then $\pi(R)$ is a quotient of $\pi(K)$.
+\end{proposition}
+
+\begin{proof}
+Any generator of $\pi_1(H^- \setminus R)$ is represented by a meridian in $\pi_1(H^+ \setminus R)$. Thus, by the Seifert-van Kampen Theorem, $\pi(R)$ is isomorphic to a quotient of $\pi_1(H^+ \setminus R)$.
+\end{proof}
+
+We are now going to work towards a more concrete description of $\pi(R)$ by inspecting the space $P \setminus R$, see Figure \ref{fig:embedding-height-levels} (middle right). Let us first consider two meridians in $P \setminus R$ that pass through the same hole. Then, assuming they are coherently oriented, there is a homotopy between said curves in $H^- \setminus R$. This yields a set of relations, referred to as the \textit{same-slit-relations}, identifying meridians in $\pi(K)$ passing through the same slit in $P \setminus R$. An example pair of meridians identified by the same-slit-relations is depicted in Figure \ref{fig:same-slit}.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\verticalcenter{
+\includegraphics{same-slit-relations}
+}
+\caption{Same-slit-relations}
+\label{fig:same-slit}
+\end{minipage}%
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\includegraphics{through-slit-relations}
+\caption{Through-slit-relations}
+\label{fig:an-interesting-curve}
+\end{minipage}
+\end{figure}
+
+The final set of relations is a little bit more subtle to see. Note that $\pi_1(P \setminus R)$ is not generated by meridians as previously discussed. In addition, we need to consider curves nullhomotopic in $H^+ \setminus P$ that pass through slits. Including such curves into $\pi_1(H^- \setminus R)$ gives rise to the so-called \textit{through-slit-relations}. A toy example can be found in Figure \ref{fig:an-interesting-curve}. We can now summarize our procedure as follows.
+
+\begin{lemma}
+Let $R$ be a ribbon disk for $K$.
+A presentation of $\pi(R)$ can be obtained by adding same-slit-relations and through-slit-relations to a presentation of $\pi(K)$.
+\end{lemma}
+
+\begin{proof}
+The three kinds of relations discussed correspond to a generating set of $\pi_1(P \setminus R)$.
+\end{proof}
+
+\begin{figure}[htb]
+	\centering
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\includegraphics{strip}
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\includegraphics{strip-meridian}
+	\end{minipage}
+	\caption{Interpretation of the 
+				arcs in the Ribbon 
+				Wirtinger procedure}
+	\label{fig:arcs-interpretation}
+\end{figure}
+
+\begin{theorem}
+The Ribbon Wirtinger procedure is correct.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The main ingredient used to check correctness is interpreting the generating set of the Ribbon Wirtinger procedure as meridians such as the meridian in Figure \ref{fig:arcs-interpretation}. It is then immediate that the through-slit relations, the same-slit relations and the Wirtinger relations are all satisfied. The converse is true by construction.
+\end{proof}
+
+\begin{example}[Connected Sum of the Trefoil with its Mirror Image]\label{ex:square-knot-ribbon}
+Consider the generating assignment of curves of $\pi(K)$ in Figure \ref{fig:meridians-of-trefoil-sum-trefoil}. This yields a presentation of the fundamental group of the complement of $K$ with generators $a$, $b$ and $b'$ satisfying Wirtinger relations
+$aba = bab \,\text{ and }\, ab'a = b'ab'.$
+
+\begin{figure}[htb]
+	\centering
+	\begin{minipage}[b]{0.43\textwidth}
+		\centering
+		\includegraphics{meridians-of-trefoil-sum-trefoil}
+		\caption{$3_1\#\bar{3}_1$}
+		\label{fig:meridians-of-trefoil-sum-trefoil}
+	\end{minipage}%
+	\begin{minipage}[b]{0.57\textwidth}
+		\centering
+		\includegraphics{real-life-gamma}
+		\caption{$\gamma$ representing $b^{-1}a^{-1}b^{-1}aba$}
+		\label{fig:the-real-life-gamma}
+	\end{minipage}
+\end{figure}
+
+Consider the curve $\gamma$ in Figure \ref{fig:the-real-life-gamma}, yielding the single through-slit relation $aba = bab$, which is already in our list of Wirtinger relations.
+Finally, the single same-slit relation is $b = b'$, as can be seen by staring at Figure \ref{fig:embedding-height-levels} (middle right). This yields the presentation
+$$
+\pi(R) = \langle a, b, b' \; | \;
+aba = bab, ab'a = b'ab', b = b'\rangle = \pi(3_1).$$
+This result is actually a special case of Theorem \ref{thm:pi(K)=pi(R)} below.
+\end{example}
+
+\begin{example}[The Knot $8_{20}$]\label{ex:8-20-ribbon}
+Consider the diagram of $K = 8_{20}$ in Figure \ref{fig:ribbon-diagram-of-8_20}. Note that $K$ is also the $(3, -3, 2)$-pretzel knot. It is a so-called ribbon diagram, so it should not be necessary to explicitly draw the ribbon. The knot group $\pi(K)$ is generated by the meridians $a, a', b, b'$ indicated in Figure \ref{fig:ribbon-diagram-of-8_20}.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}[b]{0.43\textwidth}
+\centering
+\includegraphics{ribbon-diagram-of-8_20}
+\caption{A ribbon diagram of $8_{20}$}
+\label{fig:ribbon-diagram-of-8_20}
+\end{minipage}%
+\begin{minipage}[b]{0.57\textwidth}
+\centering
+\includegraphics{slit-curve-8_20}
+\caption{$\gamma$ representing $a b a b^{-1} a^{-1} b^{-1}$}
+\label{fig:slit-curve-8-20}
+\end{minipage}
+\end{figure}
+
+
+Since $b$ can be arranged to pass through the same slit as $a'$, we add the relation $b = a'$. Moreover, considering the curve $\gamma$ in Figure \ref{fig:slit-curve-8-20}, we see that $a$ and $b$ satisfy the relation $aba = bab$. Finally, after passing under the strand labeled $a'$ we have that $b'$ passes through the same slit as $a$. In symbols, $b' = b^{-1}ab$. Thus we obtain $\pi(R) = \langle a, b \; | \; aba = bab \rangle = \pi(3_1)$.
+\end{example}
+
+
+
+\begin{theorem}\label{thm:pi(K)=pi(R)}
+Let $K$ be any knot and let $R$ be the standard ribbon disk of $K\#\bar{K}$. Then $\pi(R)$ is isomorphic to the knot group $\pi(K)$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Consider the inclusion $\iota: S^3 \setminus K\#\bar K \rightarrow D^4 \setminus R$. This map induces a surjective homomorphism $\iota_*: \pi(K\#\bar K) \twoheadrightarrow \pi(R)$. Note that sending each meridian in $\pi(K)$ to a meridian of one of the summands in $\pi(K\#\bar K)$ defines an embedding $d: \pi(K) \hookrightarrow \pi(K\#\bar K)$. Composition yields a map 
+$$\varphi: \pi(K) \hookrightarrow \pi(K\# \bar K) 
+\twoheadrightarrow \pi(R).$$
+
+The homomorphism $\varphi$ is surjective because the image of $d$ together with the kernel of $\iota_*$ generate the knot group $\pi(K\#\bar K)$. Indeed, the same-slit relations are of the form $a^{-1}a'$, where $a$ lies in the image of $d$ and $a'$ is the mirror image of~$a$. For injectivity, we only need to prove that the through-slit relations follow from the Wirtinger relations. To see this, let us change our perspective a little bit. Consider the ribbon disk from the side. This is just a diagram of $K$ where we remove an understrand. For the sideways view of the ribbon disk of the connected sum of the trefoil with its mirror image in Figure \ref{fig:ribbon-trefoil-mirror-trefoil} consider Figure \ref{fig:ribbon-trefoil-from-side}.
+Let us refer to a segment of this diagram that starts and ends with overcrossings and only has undercrossings in between as an \textit{anti-bridge}. Then anti-bridges correspond to through-slit relations. Moreover, the qualitative picture of an anti-bridge is as in Figure \ref{fig:anti-bridge}.
+In this picture, it is evident that the through-slit relations follow from the Wirtinger relations.
+\end{proof}
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}[b]{0.4\textwidth}
+\centering
+\includegraphics{sideways-view-of-ribbon-disk}
+\caption{Sideways view of ribbon disk}
+\label{fig:ribbon-trefoil-from-side}
+\end{minipage}%
+\begin{minipage}[b]{0.6\textwidth}
+\centering
+\includegraphics{anti-bridge}
+\caption{An anti-bridge with $3$ overcrossings}
+\label{fig:anti-bridge}
+\end{minipage}
+\end{figure}
+
+\subsection{Meridians and Ribbons}
+Similar as in the case of knots, we have that $\pi(R)$ is generated by a specific conjugacy class called meridians, consisting of curves that wrap around the ribbon disk once. For convenience, we opt for the definition that a \textit{meridian} of a ribbon disk $R$ is the image of a meridian of $\partial R$ under the quotient map $\pi(\partial R) \rightarrow \pi(R)$. The least number of meridians needed to generate $\pi(R)$ is called the \textit{meridional rank} of $R$, denoted $\mu (R)$. The meridional rank of the ribbon of the square knot in Example \ref{ex:square-knot-ribbon}, as well as the meridional rank of the ribbon of the knot $8_{20}$ in Example \ref{ex:8-20-ribbon}, are two.
+
+Continuing the analogy, think of a ribbon disk $R$ as an immersed disk in $S^3$. A \textit{bridge} is an arc of~$R$ that is involved as an over-arc in at least one crossing. We define the \textit{bridge index} $b(R)$ to be the minimal number of bridges, minimized over ribbons equivalent to $R$. To make precise sense of ribbon equivalence, we should pass to the setting in $D^4$. The reader may carry out the details. We can now formulate the following.
+
+\begin{conjecture}[Meridional Rank Conjecture for Ribbons]
+Let $R$ be an immersed ribbon disk in~$S^3$. Then the meridional rank of its standard embedding into $D^4$ is equal to its bridge index. In symbols, $$\mu(R) = b(R).$$
+\end{conjecture}
+
+As in the case of the meridional rank of links, one inequality can be established quite easily by diagrammatical considerations.
+
+\begin{proposition}\label{conj:meribbonal-rank-easy}
+Let $R$ be any ribbon disk. Then $\mu(R) \leq b(R)$.
+\end{proposition}
+
+\begin{proof}
+Assume that the ribbon diagram has as few bridges as possible.
+Let us define the notion of \textit{bridge depth} of ribbon arcs inductively as follows. The bridge depth of a bridge is zero. For a ribbon crossing which involves a bridge as an over-arc and an under-arc for which the bridge depth is $d$, the bridge depth of the other arc is $d + 1$ (if it was not previously defined to be $d-1$). Then any arc has an assigned bridge depth. Now consider the meridians associated to the bridges. Applying all possible Wirtinger relations $d$ times yields an expression for an arc of depth $d$. Since the meridians associated to arcs generate $\pi(R)$ we get that the meridional rank $\mu(R)$ is bounded by $b(R)$.
+\end{proof}
+
+In fact, we can reduce a specific case of the meridional rank conjecture for ribbons to the meridional rank conjecture for knots.
+
+\begin{theorem}
+Let $K$ be any knot. Then the standard ribbon for $K \# \bar{K}$ satisfies the meridional rank conjecture for ribbons if $K$ satisfies the meridional rank conjecture for knots.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The bridge index of the ribbon is at most the bridge index of $K$, which follows from looking at a suitable diagram of $K$. Namely, interpret a minimal-bridge diagram of $K$ as the sideways view of the ribbon disk in question. Then an overcrossing of $K$ corresponds to a singularity in a bridge in~$R$. In other words, a bridge of $K$ gives rise to a bridge of $R$.
+\end{proof}
+
+It is not clear whether the inequality $b(R) \leq b(K)$ is the best we can hope for, as there is no known counterexample to equality. Schematically, writing $f(R)$ for the \textit{fusion number}, defined to be the least number of ribbon singularities of $R$ in any projection to $S^3$, we can sum up the results of this chapter with the inequalities
+$$
+\begin{tikzcd}[column sep=.7em]
+  c(K) \arrow[r, symbol = \leq]
+& \mu(K) \arrow[r, symbol = \leq] \arrow[d, symbol = {=}]
+& b(K) \arrow[d, symbol = \geq]\\
+& \mu(R) \arrow[r, symbol = \leq]
+& b(R) \arrow[r, symbol = \leq] & f(R).
+\end{tikzcd}
+$$
+Recall that $c(K)$ is the Coxeter rank (see Section \ref{subsec:meridional-rank} for the definition) rather than the crossing number.
+Note that this set of inequalities relies on the fact that $R$ is the standard ribbon disk for $K \# \bar{K}$. From the inequalities it is evident that equality $b(K) = b(R)$ would imply that the meridional rank conjecture for ribbons is stronger than the meridional rank conjecture for knots, providing incentive for further research on this topic. Last but not least, we can bound the fusion number by the Coxeter rank, which is worth its own theorem.
+
+\begin{theorem}
+Let $K$ be a knot and let $R$ be the standard ribbon disk for $K \# \bar K$. Then $c(K) \leq f(R)$.
+\end{theorem}
+\end{document}

@@ -1,0 +1,53 @@
+#1 takes a presentation of three elements and spits out a finite coxeter quotient if the group was finite
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/coxeterGroupFromGroupPresentation.g");
+
+#2 computes the canonical quotient from a gauss code. has involutary wirtinger
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/canonicalQuotientFromGaussCode.g");
+
+#3 combines the two above to scan whole lists of knots
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/coxeterQuotientFromGaussCode.g");
+
+#4 2-bridges. uses #2
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/handle2BridgeKnots.g");
+
+#5 tries to find finite coxeter quotients of not necessarily finite canonical quotients of rank 3
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/finiteCoxeterQuotientsRank3.g");
+
+
+
+
+
+
+
+#6 Torus knot shit
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/torus_Knots/torusKnots.g");
+
+
+
+
+#7 does more or less what 2 does but with monoids. was used to generate the (as of 24.04.19) biggest table of coxeter quotients,
+#up to 10 crossings. found 96 quotients out of 155 three-bridge-knots
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/canonicalQuotientFromGaussCodeMonoidVersion.g");
+
+#8 generates gauss codes of torus knots
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/gaussCodesOfTorusKnots.g");
+
+#9 reidemeister moves
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/reidemeisterMovesForGaussCodes.g");
+
+#10 depends on #7. searches rank two quotients of gauss codes.
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/rankTwoQuotients.g");
+
+#11 depends on #9 and #7. computes some classical invariants, e.g. determinant (at the moment just this)
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/classicalInvariants.g");
+
+#12 depends on #7. Colors diagrams with S_n, i.e., finds coxeter quotients of type graph(A_n).
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/symmetricGroupColorings.g");
+
+#13 depends on #7. Colors diagrams with Cox(2,3,5)
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/Masterarbeit/Gap/canonical_quotient/icosahedralColorings.g");
+
+
+
+#euler shit
+Read("../../Users/levir/OneDrive/Desktop/studium/Documents/ProjectEuler/problem22.g");

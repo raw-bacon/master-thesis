@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{figpreamble}
+\begin{document}
+\begin{tikzpicture}
+\begin{knot}[clip width = 5]
+\strand[black, thick, ->] (0, 0) -- (4, 4);
+\strand[black, thick, ->] (0, 4) -- (4, 0);
+
+\strand[black, ->] (1.9, 1.1) -- (1.1, 1.9);
+\strand[black, ->] (1.1, 2.1) -- (1.9, 2.9);
+\strand[black, ->] (2.9, 2.1) -- (2.1, 2.9);
+\strand[black, ->] (2.1, 1.1) -- (2.9, 1.9);
+
+\node at (1, 1.5) {$a$};
+\node at (1.5, 3) {$c$};
+\node at (2.5, 3) {$a$};
+\node at (3, 1.5) {$b$};
+
+\node at (2, 0) {$ba = ac$};
+\end{knot}
+\end{tikzpicture}
+\end{document}
